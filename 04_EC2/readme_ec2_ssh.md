@@ -7,7 +7,7 @@ SSH Troubleshooting
 
 This is a security group issue. Any timeout (not just for SSH) is related to security groups or a firewall. Ensure your security group looks like this and correctly assigned to your EC2 instance.
 
-<img src="https://img-c.udemycdn.com/redactor/raw2019-10-23_14-53-48-cc1a033599952b0c25e1932ddfe1eb46.png">
+<img src="https://img-c.udemycdn.com/redactor/raw/2019-10-23_14-53-48-cc1a033599952b0c25e1932ddfe1eb46.png" />
 
 
 2) There's still a connection timeout issue
