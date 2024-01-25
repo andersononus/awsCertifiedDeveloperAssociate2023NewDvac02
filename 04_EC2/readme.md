@@ -321,3 +321,43 @@ echo "Servidor web Nginx instalado e configurado. Acesse http://$IP_PUBLICO/ par
 ```
 
 Lembre-se de substituir os valores de `AMI_ID`, `GRUPO_SEGURANCA`, etc., pelos valores específicos do seu ambiente. Este script cria uma instância EC2, configura o servidor web Nginx nela e exibe o endereço IP público da instância. Certifique-se de que as portas apropriadas estejam abertas no grupo de segurança para permitir o acesso ao servidor web, se necessário.
+
+*******
+
+O EC2 Instance Store é um armazenamento temporário associado a instâncias EC2 na Amazon Web Services (AWS). Esse armazenamento é diretamente conectado ao hardware físico da instância e é considerado volátil, o que significa que os dados são perdidos quando a instância é interrompida ou terminada. Aqui estão alguns benefícios e casos de uso comuns associados ao EC2 Instance Store:
+
+### Benefícios:
+
+1. **Desempenho Elevado:**
+   - O EC2 Instance Store oferece um desempenho mais alto em comparação com o armazenamento EBS (Elastic Block Store), pois está diretamente conectado ao hardware da instância. É ideal para cargas de trabalho que exigem alto desempenho de armazenamento local.
+
+2. **Baixa Latência:**
+   - A latência de acesso aos dados no Instance Store é geralmente menor em comparação com o EBS, devido à sua natureza de armazenamento local.
+
+3. **Ideal para Dados Temporários ou Efêmeros:**
+   - O EC2 Instance Store é adequado para armazenar dados temporários, efêmeros ou que podem ser facilmente regenerados, pois os dados são perdidos quando a instância é interrompida ou terminada.
+
+4. **Armazenamento Incluso no Custo da Instância:**
+   - O armazenamento do EC2 Instance Store está incluído no custo da instância EC2. Isso pode ser benéfico para casos de uso onde o armazenamento efêmero atende aos requisitos da carga de trabalho.
+
+5. **Alto Desempenho para Aplicações Específicas:**
+   - É frequentemente utilizado em casos de uso que requerem alto desempenho de I/O, como bancos de dados temporários, caches ou processamento de dados temporários.
+
+### Casos de Uso Comuns:
+
+1. **Cache Temporário:**
+   - Armazenamento local é frequentemente usado para armazenar caches temporários que podem ser regenerados quando necessário.
+
+2. **Processamento de Dados Temporários:**
+   - Para cargas de trabalho que envolvem processamento de dados temporários, como análise de dados temporários, o EC2 Instance Store pode ser uma escolha eficiente.
+
+3. **Bancos de Dados Temporários:**
+   - Em alguns casos, bancos de dados temporários ou de curta duração podem ser mantidos no EC2 Instance Store para melhorar o desempenho.
+
+4. **Armazenamento de Logs Temporários:**
+   - Para armazenamento temporário de logs que não precisam ser retidos a longo prazo, o EC2 Instance Store pode ser uma opção.
+
+5. **Ambientes de Teste e Desenvolvimento:**
+   - Ambientes de teste e desenvolvimento, nos quais os dados podem ser regenerados facilmente, podem se beneficiar do EC2 Instance Store.
+
+É importante notar que, devido à sua natureza efêmera, o EC2 Instance Store não é adequado para armazenamento persistente ou dados que precisam ser retidos a longo prazo. Para armazenamento persistente, o Amazon EBS é geralmente mais apropriado. A escolha entre EC2 Instance Store e EBS depende dos requisitos específicos da carga de trabalho.
