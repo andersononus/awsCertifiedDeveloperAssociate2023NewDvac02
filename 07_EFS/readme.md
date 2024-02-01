@@ -79,3 +79,61 @@ O Amazon Elastic File System (EFS) é um serviço de armazenamento de arquivos t
     - Os custos do EFS são baseados na quantidade de armazenamento utilizado, proporcionando uma estrutura de preços flexível e escalável.
 
 O EFS é particularmente útil para casos de uso onde o compartilhamento de dados entre várias instâncias EC2 é necessário, como em ambientes de desenvolvimento, aplicativos corporativos, bancos de dados compartilhados, e outras cargas de trabalho que demandam um sistema de arquivos distribuído e elástico.
+
+Principais Dicas e Diferenças entre Amazon EFS (Elastic File System) e Amazon EBS (Elastic Block Store):
+
+### Dicas Principais:
+
+**Para Amazon EFS:**
+1. **Compartilhamento Multi-Instância:**
+   - Ideal para compartilhamento de arquivos entre várias instâncias EC2 simultaneamente.
+
+2. **Escalabilidade Elástica:**
+   - Escala automaticamente para atender ao crescimento ou redução da demanda.
+
+3. **Acesso NFSv4:**
+   - Usa o protocolo NFSv4, permitindo acesso simultâneo e leitura/gravação de várias instâncias.
+
+4. **Gerenciamento Simplificado:**
+   - Totalmente gerenciado pela AWS, reduzindo a carga operacional para gerenciar sistemas de arquivos distribuídos.
+
+**Para Amazon EBS:**
+1. **Armazenamento de Bloco para Instâncias EC2:**
+   - Fornece armazenamento de bloco persistente para instâncias EC2.
+
+2. **Ideal para Bancos de Dados e Aplicações Específicas:**
+   - Bem adequado para armazenamento de bancos de dados, volumes raiz de instâncias, e outros casos de uso que requerem armazenamento de bloco persistente.
+
+3. **Desempenho Otimizado:**
+   - Oferece diferentes tipos de volumes (gp2, io2, st1, sc1) para otimizar o desempenho conforme a necessidade da carga de trabalho.
+
+4. **Snapshots para Backup:**
+   - Permite criar snapshots para backup e recuperação eficiente de volumes.
+
+### Diferenças Principais:
+
+1. **Modelo de Acesso:**
+   - EFS: Acesso simultâneo de leitura/gravação por várias instâncias.
+   - EBS: Associado a uma única instância por vez; volumes podem ser movidos entre instâncias.
+
+2. **Escalabilidade:**
+   - EFS: Escala automaticamente para acomodar grandes volumes de dados e número crescente de instâncias.
+   - EBS: Precisa ser dimensionado manualmente, e os volumes têm limites específicos.
+
+3. **Custos:**
+   - EFS: Custos baseados na quantidade de dados armazenados.
+   - EBS: Custos baseados no tamanho do volume provisionado.
+
+4. **Tipo de Dados:**
+   - EFS: Mais adequado para dados compartilhados entre instâncias, como home directories ou dados de aplicativos.
+   - EBS: Mais apropriado para armazenamento persistente de dados específicos de instâncias.
+
+5. **Desempenho:**
+   - EFS: Desempenho é ajustado automaticamente; adequado para uma variedade de casos de uso.
+   - EBS: Oferece diferentes tipos de volumes otimizados para diferentes necessidades de desempenho.
+
+6. **Durabilidade e Replicação:**
+   - EFS: Replicação automática de dados em várias zonas de disponibilidade.
+   - EBS: Replicação dentro da mesma zona de disponibilidade; snapshots podem ser usados para backup.
+
+Ao escolher entre EFS e EBS, considere os requisitos específicos da sua aplicação, como modelo de acesso, escalabilidade, custos e necessidades de desempenho. Ambos têm casos de uso específicos onde se destacam.
